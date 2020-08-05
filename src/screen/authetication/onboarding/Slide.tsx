@@ -11,14 +11,18 @@ interface SlideProps {
 const styles = StyleSheet.create({
     container: {
         width,
-        backgroundColor:'cyan'
+        
     },
     title: {
-        fontSize: 24,
+        fontSize: 70,
         color: '#ffffff',
+        textAlign:"center",
+        lineHeight:70
     },
     sliderContainer: {
-        flex: 1,
+       justifyContent:"center",
+        height:100,
+        
     }
 })
 
@@ -26,7 +30,7 @@ const Slide = ({ label, right }: SlideProps) => {
 
     const transform = [
         { translateY: (SLIDE_HEIGHT - 100) / 2 },
-        { translateX: right ? width / 2 - 100 : -width / 2 + 50 },
+        { translateX: right ? width / 2 - 50 : -width / 2 + 50 },
         { rotate: right ? "-90deg" : "90deg" }
     ]
 

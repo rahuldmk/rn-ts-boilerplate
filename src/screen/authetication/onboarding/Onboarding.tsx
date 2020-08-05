@@ -8,14 +8,26 @@ const { width, height } = Dimensions.get("window");
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor:"white"
     },
     slider: {
         height: SLIDE_HEIGHT,
-        backgroundColor: '#cccccc'
+        backgroundColor:"cyan",
+        borderBottomRightRadius:75
     },
     footer: {
-        flex: 1
+        flex: 1,
+    },
+    footerOuter: {
+        ...StyleSheet.absoluteFillObject,
+        backgroundColor: "cyan"
+    },
+    footerInner: {
+        backgroundColor: "white",
+        flex: 1,
+        borderTopLeftRadius:75
     }
+
 })
 
 const Onboarding = () => {
@@ -34,7 +46,11 @@ const Onboarding = () => {
                 </ScrollView>
             </View>
             <View style={styles.footer}>
+                <View style={styles.footerOuter}>
+                    <View style={styles.footerInner}>
 
+                    </View>
+                </View>
             </View>
         </View>
     )
