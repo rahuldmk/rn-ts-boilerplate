@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { View, StyleSheet, Dimensions, Animated } from 'react-native';
 import Slide, { SLIDE_HEIGHT } from './Slide';
-
+import {useValue, onScrollEvent, interpolateColor } from 'react-native-redash';
 const { width, height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
@@ -31,19 +30,27 @@ const styles = StyleSheet.create({
 })
 
 const Onboarding = () => {
+    const x = useValue(0);
+    const onScroll = onScrollEvent({x});
+    const backgroundColor = interpolateColor(x,{
+        inputRange:[0,width,width*2,width*3],
+        outputRange:["#BFEAF5","#BEECC4","#CCCCCC","#FFCCCF"]
+    });
     return (
         <View style={styles.container}>
             <View style={styles.slider}>
-                <ScrollView horizontal
+                <Animated.ScrollView horizontal
                     snapToInterval={width}
                     decelerationRate="fast"
                     showsHorizontalScrollIndicator={false}
-                    bounces={false}>
+                    bounces={false}
+                    {...{onScroll}}
+                    >
                     <Slide label="Relaxed" right />
                     <Slide label="Playful" />
                     <Slide label="Excentric" right />
                     <Slide label="Funky" />
-                </ScrollView>
+                </Animated.ScrollView>
             </View>
             <View style={styles.footer}>
                 <View style={styles.footerOuter}>
