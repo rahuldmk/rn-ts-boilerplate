@@ -5,8 +5,8 @@ const AuthStack = createStackNavigator();
 
 const AuthStackScreen = () => (
     <AuthStack.Navigator headerMode="none">
-        <AuthStack.Screen name="Onboarding" component={Onboarding} />
-        <AuthStack.Screen name="SignUp" component={SignUp} />
+        <AuthStack.Screen name="Onboarding" component={SignUp} />
+        <AuthStack.Screen name="SignUp" component={Onboarding} />
     </AuthStack.Navigator>
 )
 

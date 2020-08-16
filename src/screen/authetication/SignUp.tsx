@@ -1,13 +1,19 @@
-import { requireNativeComponent } from "react-native";
-
 import React from 'react';
-import { View,Text } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
+import { Block } from '../../components/index';
+
+
+const styles = StyleSheet.create({
+    container:{
+        flex:1
+    }
+})
 
 const SignUp = () =>{
     return(
-        <View>
+        <Block center middle>
             <Text>SignUp</Text>
-        </View>
+        </Block>
     );
 }
 
