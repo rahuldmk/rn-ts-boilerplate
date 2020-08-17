@@ -23,12 +23,13 @@ const styles = StyleSheet.create({
 
 const Block: React.FC<BlockProps> = props => {
 
-    const { flex, center, middle, children } = props;
+    const { flex, center, middle, children,style } = props;
     const blockStyle = [
         styles.block,
         flex && { flex },
         center && styles.center,
-        middle && styles.middle
+        middle && styles.middle,
+        style
     ];
     return (
         <View style={[blockStyle]}>

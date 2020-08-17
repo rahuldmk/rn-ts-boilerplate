@@ -1,3 +1,3 @@
 import Block from './Block';
-
-export { Block }
+import Text from './Text'
+export { Block, Text }
