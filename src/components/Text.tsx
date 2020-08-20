@@ -7,11 +7,14 @@ interface TextProps {
     center?: any,
     style?: any,
     size?: any,
+    height?:any,
+    spacing?:any,
+    weight?:any
 };
 
 const styles = StyleSheet.create({
     text: {
-        flex: 1
+    
     },
     center: {
         alignItems: 'center'
@@ -23,12 +26,15 @@ const styles = StyleSheet.create({
 
 const Typegraphy: React.FC<TextProps> = props => {
 
-    const { color, center, children, size, style } = props;
+    const { color, center,height,spacing, children, size, style,weight } = props;
     const TextStyle = [
         styles.text,
         center && styles.center,
         color && { color },
         size && { fontSize:size },
+        height && {lineHeight:height},
+        spacing && {letterSpacing:spacing},
+        weight && {fontWeight:weight},
         style
     ];
     return (

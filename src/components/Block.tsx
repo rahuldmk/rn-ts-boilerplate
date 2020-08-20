@@ -6,7 +6,8 @@ interface BlockProps {
     flex?: any,
     center?: any,
     middle?: any,
-    style?: any
+    style?: any,
+    background?: any,
 };
 
 const styles = StyleSheet.create({
@@ -17,18 +18,20 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     middle: {
-        justifyContent: 'center'
+        justifyContent: 'center',
+
     }
 });
 
 const Block: React.FC<BlockProps> = props => {
 
-    const { flex, center, middle, children,style } = props;
+    const { flex, center, middle, children, style, background } = props;
     const blockStyle = [
         styles.block,
         flex && { flex },
         center && styles.center,
         middle && styles.middle,
+        background && { backgroundColor: background },
         style
     ];
     return (
