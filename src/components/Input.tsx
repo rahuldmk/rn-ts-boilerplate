@@ -16,11 +16,15 @@ interface InputProps {
 
 const styles = StyleSheet.create({
     Input: {
-        borderRadius: 2,
-        backgroundColor: '#CCCCCC'
+        borderRadius: 5,
+        borderColor:'#B0BAC9',
+        borderWidth:1,
+        backgroundColor: '#ffffff',
+        height:40
     },
     label: {
-        marginBottom: 2
+        marginBottom: 8,
+        textTransform:'uppercase'
     },
     full: {
         width: width - 50,
@@ -43,8 +47,8 @@ const Input: React.FC<InputProps> = props => {
                 size={12}
                 height={14}
                 spacing={1.12}
-                weight={'500'}
-                color="#B0BAC9"
+                weight={'bold'}
+                color="#8798AD"
                 style={styles.label}
             >
                 {label}
