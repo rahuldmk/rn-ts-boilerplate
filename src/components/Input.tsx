@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, TextInput, Dimensions } from 'react-native';
 import Text from './Text';
+import * as theme from '../styles/theme';
 
 const { width } = Dimensions.get('window');
 
@@ -17,9 +18,9 @@ interface InputProps {
 const styles = StyleSheet.create({
     Input: {
         borderRadius: 5,
-        borderColor:'#B0BAC9',
+        borderColor:theme.colors.grey,
         borderWidth:1,
-        backgroundColor: '#ffffff',
+        backgroundColor: theme.colors.white,
         height:40
     },
     label: {
@@ -48,7 +49,7 @@ const Input: React.FC<InputProps> = props => {
                 height={14}
                 spacing={1.12}
                 weight={'bold'}
-                color="#8798AD"
+                color={theme.colors.black}
                 style={styles.label}
             >
                 {label}

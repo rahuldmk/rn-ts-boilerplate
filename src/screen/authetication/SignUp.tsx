@@ -1,59 +1,61 @@
 import React from 'react';
 import { StyleSheet, Image } from 'react-native';
 import { Block, Text, Input, Button } from '../../components/index';
-
+import * as theme from '../../styles/theme';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
     logo: {
-        width: 100,
-        height: 100,
+        height: 42,
         resizeMode: 'contain'
     }
-
 })
 
-const SignUp = () => {
-    return (
-        <Block center middle background="white">
-            <Block center>
-            <Block middle flex={0.3}>
-                <Image source={require('../../assets/images/logo.png')} style={styles.logo} />
-            </Block>
-            
-                <Text
-                    size={28}
-                    spacing={0}
-                    height={32}
-                    weight={'300'}
-                    style={{ marginBottom: 6 }}
-                >
-                    Sign in to DP
-                    </Text>
-                <Text
-                    size={15}
-                    spacing={0}
-                    height={22}
-                    weight={'300'}
-                    color='gray'
-                    style={{marginBottom:44}}
-                >
-                    Please enter your credentials to proceed
-                </Text>
-            
+interface Sprops  {
+    navigation?: any
+};
 
-            <Block center >
-                    <Input style={{ marginBottom: 20 }} label="EMAIL ADDRESS" email full />
-                    <Input style={{ marginBottom: 20 }} label="PASSWORD" password={true} full />
-                    <Button color={'#2E5BFF'} style={{ marginBottom: 12 }} full onPress={() => console.log('Hello')}>
-                        <Text height={21} spacing={0} color={'white'} center weight={'bold'}>Sign in</Text>
-                    </Button>
-                    <Text color="#8798AD" height={22}>Don't hava an account? <Text color={'#2E5BFF'}>Sign up</Text></Text>
+const SignUp: React.FC<Sprops> = props => {
+
+    const { navigation } = props;
+    return (
+        <KeyboardAwareScrollView style={{ flex: 1 }}>
+            <Block center middle background="white">
+                <Block center>
+                    <Block middle center style={{ marginBottom: 10, marginTop: 5 }}>
+                        <Image source={require('../../assets/images/Logo.png')} style={styles.logo} />
                     </Block>
+
+                    <Text h3 style={{ marginBottom: 6 }}>
+                        Get started for free
+                    </Text>
+                    <Text paragraph style={{ marginBottom: 5 }}>
+                        Free forever. No credit card needed.
+                    </Text>
+
+                    <Block row space="around" style={{ marginHorizontal: 28, marginTop: 20, }}>
+                        <Block center middle style={{ borderRadius: 5, borderWidth: 1, height: 175, marginRight: 20 }}>
+                            <Text h4>Administrator</Text>
+                            <Text paragraph color="grey" center>Full access to all setting</Text>
+                        </Block>
+                        <Block center middle style={{ borderRadius: 4, borderWidth: 1, height: 175 }}>
+                            <Text h4>Operator</Text>
+                            <Text paragraph color="grey" center>Service desk and chat permission</Text>
+                        </Block>
+                    </Block>
+
+                    <Block center style={{ marginTop: 20, marginBottom: 10 }}>
+                        <Input style={{ marginBottom: 15 }} label="Full Name" full />
+                        <Input style={{ marginBottom: 15 }} label="EMAIL ADDRESS" email full />
+                        <Input style={{ marginBottom: 20 }} label="PASSWORD" password={true} full />
+                        <Button color={theme.colors.blue} style={{ marginBottom: 12 }} full onPress={() => console.log('Hello')}>
+                            <Text paragraph color='white' center weight={'bold'}>Create account</Text>
+                        </Button>
+                        <Text color="grey" paragraph>Already have an account? <Text color="blue" onPress={() => navigation.navigate('SignIn')}>Sign up</Text></Text>
+                    </Block>
+                </Block>
             </Block>
-        </Block>
+        </KeyboardAwareScrollView>
     );
 }
 
